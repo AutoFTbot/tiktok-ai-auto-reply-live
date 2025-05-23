@@ -1,0 +1,36 @@
+{
+  "name": "tiktok-ai-auto-reply",
+  "version": "1.0.0",
+  "description": "TikTok Live Comment Auto-Reply dengan AI Gemini",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "setup": "node setup.js",
+    "demo": "node demo.js",
+    "build": "npm install"
+  },
+  "keywords": [
+    "tiktok",
+    "live",
+    "ai",
+    "gemini",
+    "auto-reply",
+    "chat"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "chalk": "^4.1.2",
+    "dotenv": "^16.4.5",
+    "figlet": "^1.8.1",
+    "gradient-string": "^3.0.0",
+    "gtts": "^0.2.1",
+    "play-sound": "^1.1.6",
+    "tiktok-live-connector": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
