@@ -2,6 +2,10 @@
 
 Bot TikTok Live yang otomatis membalas komentar menggunakan AI Gemini. Bot ini dapat memantau live stream TikTok dan memberikan balasan yang cerdas dan contextual menggunakan Google Gemini AI.
 
+## 📸 Screenshot
+
+![TikTok AI Bot Screenshot](https://raw.githubusercontent.com/AutoFTbot/tiktok-ai-auto-reply-live/main/photo_2025-05-23_21-24-27.jpg)
+
 ## ✨ Fitur
 
 * 🎯 **Auto-Reply Cerdas**: Membalas komentar secara otomatis dengan AI Gemini
@@ -115,7 +119,7 @@ Untuk mengirim balasan ke chat, Anda perlu authentication TikTok:
 🤖 Bot: Halo juga! Selamat datang di live stream! 👋
 
 🎁 fan456 sent Rose (1x)
-�� "Terima kasih fan456 telah mengirim Rose"
+🤖 "Terima kasih fan456 telah mengirim Rose"
 
 ```
 
