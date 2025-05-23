@@ -4,22 +4,22 @@ Bot TikTok Live yang otomatis membalas komentar menggunakan AI Gemini. Bot ini d
 
 ## ✨ Fitur
 
-- 🎯 **Auto-Reply Cerdas**: Membalas komentar secara otomatis dengan AI Gemini
-- 🔊 **Voice Replies**: Mengkonversi balasan teks ke suara menggunakan Google TTS
-- 🇮🇩 **Bahasa Indonesia**: Bot dioptimalkan untuk percakapan dalam bahasa Indonesia  
-- 🎭 **Karakter Bot**: Personality ramah, energik dengan emoji yang menarik
-- 📊 **Real-time Monitoring**: Memantau likes, follows, gifts, dan aktivitas lainnya
-- 🔐 **Authentication Support**: Mendukung login untuk mengirim balasan
-- ⚡ **Rate Limiting**: Delay otomatis untuk menghindari spam
-- 📈 **Statistics**: Laporan statistik real-time
+* 🎯 **Auto-Reply Cerdas**: Membalas komentar secara otomatis dengan AI Gemini
+* 🔊 **Voice Replies**: Mengkonversi balasan teks ke suara menggunakan Google TTS
+* 🎤 **Voice Events**: Audio untuk event join, gift, dan komentar
+* 🇮🇩 **Bahasa Indonesia**: Bot dioptimalkan untuk percakapan dalam bahasa Indonesia
+* 🎭 **Karakter Bot**: Personality ramah, energik dengan emoji yang menarik
+* 📊 **Real-time Monitoring**: Memantau likes, follows, gifts, dan aktivitas lainnya
+* 🔐 **Authentication Support**: Mendukung login untuk mengirim balasan
+* ⚡ **Rate Limiting**: Delay otomatis untuk menghindari spam
 
 ## 🚀 Quick Start
 
 ### 1. Clone dan Install
 
 ```bash
-git clone <repository-url>
-cd tiktok-ai-auto-reply
+git clone https://github.com/AutoFTbot/tiktok-ai-auto-reply-live.git
+cd tiktok-ai-auto-reply-live
 npm install
 ```
 
@@ -75,66 +75,61 @@ Untuk mengirim balasan ke chat, Anda perlu authentication TikTok:
 3. **Pergi ke tab Network**
 4. **Refresh halaman** TikTok
 5. **Cari request** ke `webcast.tiktok.com`
-6. **Copy cookies:**
-   - `sessionid` → `TIKTOK_SESSION_ID`
-   - `tt-target-idc` → `TIKTOK_TARGET_IDC`
+6. **Copy cookies:**  
+   * `sessionid` → `TIKTOK_SESSION_ID`  
+   * `tt-target-idc` → `TIKTOK_TARGET_IDC`
 
 > ⚠️ **Penting**: Jaga kerahasiaan session cookies Anda!
 
 ## 📋 Mode Operation
 
 ### Tanpa Authentication
-- ✅ Memantau komentar, likes, follows
-- ✅ Generate AI replies
-- ❌ Tidak bisa mengirim balasan ke chat
 
-### Dengan Authentication  
-- ✅ Semua fitur monitoring
-- ✅ Generate AI replies
-- ✅ **Mengirim balasan ke chat TikTok**
+* ✅ Memantau komentar, likes, follows
+* ✅ Generate AI replies
+* ✅ Audio untuk event join, gift, dan komentar
+* ❌ Tidak bisa mengirim balasan ke chat
 
-## 🛠️ Configuration
+### Dengan Authentication
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `TIKTOK_USERNAME` | Username TikTok target (contoh: @username) | Required |
-| `TIKTOK_SESSION_ID` | Session cookie untuk authentication | Optional |
-| `TIKTOK_TARGET_IDC` | Target IDC cookie untuk authentication | Optional |
-| `GEMINI_API_KEY` | Google Gemini API key | Required |
-| `BOT_REPLY_ENABLED` | Enable/disable auto-reply | `true` |
-| `REPLY_DELAY_MS` | Delay antar balasan (ms) | `2000` |
-| `MAX_REPLY_LENGTH` | Maksimal panjang balasan | `100` |
+* ✅ Semua fitur monitoring
+* ✅ Generate AI replies
+* ✅ Audio untuk event join, gift, dan komentar
+* ✅ **Mengirim balasan ke chat TikTok**
 
 ## 🎨 Contoh Output
 
 ```
-🤖 TikTok AI Auto-Reply Bot
+🤖 TikTok AI Bot
 
 ✅ Connected to TikTok Live!
 📺 Stream: Live streaming now!
 👥 Viewers: 1,234
 🤖 AI Auto-Reply Bot is now active!
 
+👋 user123 joined the stream
+🔊 "Selamat datang user123 di live streaming"
+
 💬 user123: Halo semua!
-🔊 Generated audio for: "Halo juga! Selamat datang di live stream! 👋"
-🤖 Bot replied: Halo juga! Selamat datang di live stream! 👋
+🔊 "Halo juga! Selamat datang di live stream! 👋"
+🤖 Bot: Halo juga! Selamat datang di live stream! 👋
 
-💬 fan456: Kontennya keren!
-🔊 Generated audio for: "Makasih ya! Senang kalian suka kontennya! 🔥✨"
-🤖 Bot replied: Makasih ya! Senang kalian suka kontennya! 🔥✨
-```
-
-## 📊 Monitoring
-
-Bot akan menampilkan statistik setiap 60 detik:
+🎁 fan456 sent Rose (1x)
+�� "Terima kasih fan456 telah mengirim Rose"
 
 ```
-📊 Bot Statistics:
-💬 Comments Processed: 45
-🤖 Replies Sent: 38
-❌ Errors: 2
-🔗 Status: Connected
-```
+
+## 🛠️ Configuration
+
+| Variable            | Description                                | Default  |
+| ------------------- | ------------------------------------------ | -------- |
+| TIKTOK_USERNAME    | Username TikTok target (contoh: @username) | Required |
+| TIKTOK_SESSION_ID | Session cookie untuk authentication        | Optional |
+| TIKTOK_TARGET_IDC | Target IDC cookie untuk authentication     | Optional |
+| GEMINI_API_KEY    | Google Gemini API key                      | Required |
+| BOT_REPLY_ENABLED | Enable/disable auto-reply                  | true     |
+| REPLY_DELAY_MS    | Delay antar balasan (ms)                   | 2000     |
+| MAX_REPLY_LENGTH  | Maksimal panjang balasan                   | 100      |
 
 ## 🎯 Customization
 
@@ -151,40 +146,32 @@ Karaktermu:
 ...`;
 ```
 
-### Menambah Event Handlers
-
-Edit file `src/tiktokBot.js` untuk menambah handler event lain:
-
-```javascript
-// Contoh: Handle event share
-this.connection.on(WebcastEvent.SHARE, (data) => {
-    console.log(`📤 ${data.uniqueId} shared the stream`);
-});
-```
-
 ## 🚨 Troubleshooting
 
 ### Bot tidak bisa connect
-- Pastikan username TikTok benar (gunakan format @username)
-- Cek apakah live stream sedang aktif
-- Pastikan koneksi internet stabil
+
+* Pastikan username TikTok benar (gunakan format @username)
+* Cek apakah live stream sedang aktif
+* Pastikan koneksi internet stabil
 
 ### Bot tidak bisa kirim balasan
-- Pastikan `TIKTOK_SESSION_ID` dan `TIKTOK_TARGET_IDC` sudah diisi
-- Cek apakah cookies masih valid (biasanya expire dalam beberapa hari)
-- Pastikan account TikTok tidak ter-ban atau ter-limit
+
+* Pastikan `TIKTOK_SESSION_ID` dan `TIKTOK_TARGET_IDC` sudah diisi
+* Cek apakah cookies masih valid (biasanya expire dalam beberapa hari)
+* Pastikan account TikTok tidak ter-ban atau ter-limit
 
 ### AI tidak merespon
-- Cek apakah `GEMINI_API_KEY` valid
-- Pastikan quota API Gemini masih tersedia
-- Cek koneksi internet
+
+* Cek apakah `GEMINI_API_KEY` valid
+* Pastikan quota API Gemini masih tersedia
+* Cek koneksi internet
 
 ## 📝 Notes
 
-- **Rate Limiting**: Bot memiliki delay 2 detik antar balasan untuk menghindari spam
-- **Fallback Replies**: Jika Gemini API error, bot akan menggunakan balasan default
-- **Session Expiry**: Session cookies TikTok biasanya expire dalam beberapa hari
-- **API Limits**: Gemini API memiliki limit requests per hari (check Google AI Studio)
+* **Rate Limiting**: Bot memiliki delay 2 detik antar balasan untuk menghindari spam
+* **Audio Events**: Bot akan memutar audio untuk event join, gift, dan komentar
+* **Session Expiry**: Session cookies TikTok biasanya expire dalam beberapa hari
+* **API Limits**: Gemini API memiliki limit requests per hari (check Google AI Studio)
 
 ## 🤝 Contributing
 
@@ -197,17 +184,18 @@ this.connection.on(WebcastEvent.SHARE, (data) => {
 ## ⚖️ Legal
 
 Bot ini dibuat untuk tujuan edukasi dan pengembangan. Pastikan untuk:
-- Mematuhi Terms of Service TikTok
-- Tidak menggunakan untuk spam atau harassment  
-- Menghormati privacy pengguna lain
-- Menggunakan dengan bertanggung jawab
+
+* Mematuhi Terms of Service TikTok
+* Tidak menggunakan untuk spam atau harassment
+* Menghormati privacy pengguna lain
+* Menggunakan dengan bertanggung jawab
 
 ## 📄 License
 
-Project ini menggunakan MIT License - lihat file [LICENSE](LICENSE) untuk detail.
+Project ini menggunakan MIT License - lihat file LICENSE untuk detail.
 
 ## 🙏 Credits
 
-- [TikTok-Live-Connector](https://github.com/zerodytrash/TikTok-Live-Connector) - Library untuk koneksi TikTok Live
-- [Google Gemini AI](https://ai.google.dev/) - AI untuk generate balasan
-- Dibuat dengan ❤️ untuk komunitas developer Indonesia 
+* [TikTok-Live-Connector](https://github.com/zerodytrash/TikTok-Live-Connector) - Library untuk koneksi TikTok Live
+* [Google Gemini AI](https://ai.google.dev/) - AI untuk generate balasan
+* Dibuat dengan ❤️ untuk komunitas developer Indonesia
